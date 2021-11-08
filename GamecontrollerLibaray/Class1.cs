@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GamecontrollerLibaray
 {
-    public class Class1
+    public class DataController
     {
     }
 }
