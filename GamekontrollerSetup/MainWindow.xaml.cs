@@ -34,5 +34,10 @@ namespace GamekontrollerSetup
             SensorWindow sensorW = new SensorWindow();
             sensorW.Show();
         }
+
+        private void exitB_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

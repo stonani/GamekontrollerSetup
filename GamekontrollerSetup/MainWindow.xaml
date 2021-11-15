@@ -5,13 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamekontrollerSetup"
         mc:Ignorable="d"
-        Title="Main" Height="394.8" Width="256">
-    <Grid HorizontalAlignment="Left" Width="238">
-        <Button x:Name="sensorB" Content="Tjek sensor" HorizontalAlignment="Left" Margin="47,102,0,0" VerticalAlignment="Top" Width="147" Click="sensorB_Click"/>
-        <Button x:Name="nullpointB" Content="Nulpunksjuster" HorizontalAlignment="Left" Margin="47,166,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button x:Name="optionsB" Content="Options" HorizontalAlignment="Left" Margin="47,234,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button x:Name="exitB" Content="Afslut" HorizontalAlignment="Left" Margin="47,299,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button x:Name="activateB" Content="Aktiver" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="-3.424,0.146"/>
+        Title="Main" Height="308.8" Width="256">
+    <Viewbox Margin="0,0,0,2">
+        <Grid HorizontalAlignment="Left" Width="238">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="61*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="sensorB" Content="Tjek sensor" HorizontalAlignment="Left" Margin="47,72,0,0" VerticalAlignment="Top" Width="147" Click="sensorB_Click" Grid.ColumnSpan="3"/>
+            <Button x:Name="nullpointB" Content="Nulpunksjuster" HorizontalAlignment="Left" Margin="47,117,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
+            <Button x:Name="optionsB" Content="Options" HorizontalAlignment="Left" Margin="47,158,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
+            <Button x:Name="exitB" Content="Afslut" HorizontalAlignment="Left" Margin="47,202,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
+            <Button x:Name="activateB" Content="Aktiver" HorizontalAlignment="Left" Margin="47,27,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="-3.424,0.146" Grid.ColumnSpan="3"/>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>

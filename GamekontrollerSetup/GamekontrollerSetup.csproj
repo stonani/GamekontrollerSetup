@@ -108,5 +108,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GamecontrollerLibaray\GamecontrollerLibaray.csproj">
+      <Project>{bed8ea4b-9c1f-4658-8f9c-9522d26e6f37}</Project>
+      <Name>GamecontrollerLibaray</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

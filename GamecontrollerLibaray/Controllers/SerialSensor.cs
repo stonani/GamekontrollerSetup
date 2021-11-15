@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamecontrollerLibaray
+namespace GamecontrollerLibaray.Controllers
 {
-    public class DataController
+    public class SerialSensor
     {
     }
 }

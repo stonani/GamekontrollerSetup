@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamekontrollerSetup", "GamekontrollerSetup\GamekontrollerSetup.csproj", "{D2BD3216-ACE1-4D17-8D54-1BAB3BDFF55D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37} = {BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamecontrollerLibaray", "GamecontrollerLibaray\GamecontrollerLibaray.csproj", "{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}"
 EndProject

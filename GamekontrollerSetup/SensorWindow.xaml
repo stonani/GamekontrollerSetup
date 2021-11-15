@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamekontrollerSetup"
         mc:Ignorable="d"
-        Title="SensorWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="backB" Content="Back" HorizontalAlignment="Left" Margin="546,329,0,0" VerticalAlignment="Top" Width="75" Click="backB_Click"/>
+        Title="SensorWindow" Height="450" Width="1304">
+    <Grid Margin="0,0,-6.4,0">
+        <Button x:Name="backB" Content="Back" HorizontalAlignment="Left" Margin="1178,38,0,0" VerticalAlignment="Top" Width="75" Click="backB_Click"/>
+        <Image HorizontalAlignment="Left" Height="261" Margin="525,95,0,0" VerticalAlignment="Top" Width="311"/>
+        <TextBlock x:Name="JoyStickXT" HorizontalAlignment="Left" Margin="39,211,0,0" TextWrapping="Wrap" Text="X value" VerticalAlignment="Top" Height="46" Width="75" FontSize="20" TextAlignment="Center"/>
+        <TextBlock x:Name="JoyStickYT" HorizontalAlignment="Left" Margin="161,211,0,0" TextWrapping="Wrap" Text="Y value" VerticalAlignment="Top" Height="46" Width="75" FontSize="20" TextAlignment="Center"/>
+        <TextBlock x:Name="JoyStickHeader" HorizontalAlignment="Left" Margin="39,145,0,0" TextWrapping="Wrap" Text="Joystick data" VerticalAlignment="Top" Height="46" Width="197" FontSize="20" TextAlignment="Center" />
+        <Button x:Name="ReadDataB" Content="Read data" HorizontalAlignment="Left" Margin="39,43,0,0" VerticalAlignment="Top" Width="75" Click="ReadDataB_Click"/>
+        <Button x:Name="StopDataB" Content="Stop data" HorizontalAlignment="Left" Margin="174,43,0,0" VerticalAlignment="Top" Width="75" Click="StopDataB_Click"/>
     </Grid>
 </Window>
