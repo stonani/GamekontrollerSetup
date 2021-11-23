@@ -17,7 +17,7 @@
             <Button x:Name="nullpointB" Content="Nulpunksjuster" HorizontalAlignment="Left" Margin="47,117,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
             <Button x:Name="optionsB" Content="Options" HorizontalAlignment="Left" Margin="47,158,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
             <Button x:Name="exitB" Content="Afslut" HorizontalAlignment="Left" Margin="47,202,0,0" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="3"/>
-            <Button x:Name="activateB" Content="Aktiver" HorizontalAlignment="Left" Margin="47,27,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="-3.424,0.146" Grid.ColumnSpan="3"/>
+            <Button x:Name="activateB" Content="Aktiver" HorizontalAlignment="Left" Margin="47,27,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="-3.424,0.146" Grid.ColumnSpan="3" Click="activateB_Click"/>
 
         </Grid>
     </Viewbox>

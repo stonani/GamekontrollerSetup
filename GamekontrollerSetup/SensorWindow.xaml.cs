@@ -16,6 +16,8 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using GamecontrollerLibaray.DataObjects;
+using GamecontrollerLibaray;
+using GamecontrollerLibaray.Controllers;
 
 namespace GamekontrollerSetup
 {
@@ -34,7 +36,7 @@ namespace GamekontrollerSetup
             InitializeComponent();
 
             //initilize serial port
-            _SerialPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+            //_SerialPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
 
             //initilize windows elements
             StopDataB.IsEnabled = false;
@@ -43,18 +45,39 @@ namespace GamekontrollerSetup
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
 
         private void ReadDataB_Click(object sender, RoutedEventArgs e)
         {
             //Set windows elements
-            ReadDataB.IsEnabled = false;
-            StopDataB.IsEnabled = true;
+            //ReadDataB.IsEnabled = false;
+            //StopDataB.IsEnabled = true;
 
-            _SerialPort.Open();
-            _SerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            //_SerialPort.Open();
+            //_SerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+
+            BlockingCollection<GyroDataContainer> dataQueue = new BlockingCollection<GyroDataContainer>();
+            GyroDataContainer gyroDataContainer = new GyroDataContainer();
+
+            var mpuSensor = new DummyMPUSensor();
+            var sensorController = new SensorController(mpuSensor, dataQueue, gyroDataContainer);
+            var keyboard = new PressKeyboardWindows();
+            var writeData = new FormsWrite(this);
+
+            var movementController = new MovementController(keyboard);
+            var gyroControl = new GyroController(dataQueue, movementController);
+            var writeDataController = new WriteDataController(writeData, dataQueue);
 
 
+            var gyroControlThread = new Thread(gyroControl.Run);
+            gyroControlThread.IsBackground = true;
+
+            var writeDataControlThread = new Thread(writeDataController.Run);
+            writeDataControlThread.IsBackground = true;
+
+            gyroControlThread.Start();
+            writeDataControlThread.Start();
         }
 
         private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
