@@ -10,5 +10,6 @@ namespace GamecontrollerLibaray.DataObjects
     {
         public double XValue { get; set; }
         public double YValue { get; set; }
+        public bool button { get; set; }
     }
 }

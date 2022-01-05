@@ -45,22 +45,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculators\GyroCalculator.cs" />
-    <Compile Include="Controllers\GyroController.cs" />
+    <Compile Include="Calculators\CameraCatagorizer.cs" />
+    <Compile Include="Calculators\GyroCatagorizer.cs" />
+    <Compile Include="Controllers\DummyProbeController.cs" />
+    <Compile Include="Controllers\DummyNeedleController.cs" />
+    <Compile Include="Controllers\MouseController.cs" />
     <Compile Include="Controllers\MovementController.cs" />
     <Compile Include="Controllers\SensorController.cs" />
-    <Compile Include="Controllers\SerialSensor.cs" />
+    <Compile Include="Controllers\WriteDataController.cs" />
+    <Compile Include="DataObjects\CameraDataContainer.cs" />
     <Compile Include="DataObjects\GyroDataContainer.cs" />
     <Compile Include="DataObjects\JoystickDataContainer.cs" />
     <Compile Include="DummyMPUSensor.cs" />
+    <Compile Include="Interface\ICameraCatagorize.cs" />
+    <Compile Include="Interface\ICameraSensor.cs" />
+    <Compile Include="Interface\IGyroCatagorize.cs" />
+    <Compile Include="Interface\IMouse.cs" />
     <Compile Include="Interface\IPressKeyboard.cs" />
     <Compile Include="Interface\ISensor.cs" />
-    <Compile Include="PressKeyboardWindows.cs" />
+    <Compile Include="Interface\ISerialSensor.cs" />
+    <Compile Include="Interface\IWriteData.cs" />
+    <Compile Include="Sensor\RandomCameraSensor.cs" />
+    <Compile Include="Sensor\SerialSensor.cs" />
+    <Compile Include="WindowsControl\MouseWindows.cs" />
+    <Compile Include="WindowsControl\PressKeyboardWindows.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceivedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

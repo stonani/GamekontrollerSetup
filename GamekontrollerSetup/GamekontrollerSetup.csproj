@@ -56,18 +56,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FormsWrite.cs" />
-    <Compile Include="IWriteData.cs" />
+    <Compile Include="NulpunkjusteringMessage.xaml.cs">
+      <DependentUpon>NulpunkjusteringMessage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SensorWindow.xaml.cs">
       <DependentUpon>SensorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WriteDataController.cs" />
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OptionsWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="NulpunkjusteringMessage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -75,10 +76,6 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OptionsWindow.xaml.cs">
-      <DependentUpon>OptionsWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Page Include="SensorWindow.xaml">
       <SubType>Designer</SubType>
@@ -116,6 +113,11 @@
       <Project>{bed8ea4b-9c1f-4658-8f9c-9522d26e6f37}</Project>
       <Name>GamecontrollerLibaray</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Emgu.CV.runtime.windows">
+      <Version>4.5.4.4788</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

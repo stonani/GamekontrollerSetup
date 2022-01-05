@@ -17,11 +17,10 @@ namespace GamecontrollerLibaray.Controllers
 
         public void HandleMovement(List<string> directions)
         {
-            foreach (string direction in directions)
+            foreach (var direction in directions)
             {
                 _keyboard.Press(direction);
             }
         }
-
     }
 }

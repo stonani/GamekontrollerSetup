@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamekontrollerSetup", "Game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamecontrollerLibaray", "GamecontrollerLibaray\GamecontrollerLibaray.csproj", "{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamingcontrollerTest", "GamingcontrollerTest\GamingcontrollerTest.csproj", "{EDBA787E-3DAE-4ABD-A1D0-B625CAAAF9F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BED8EA4B-9C1F-4658-8F9C-9522D26E6F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBA787E-3DAE-4ABD-A1D0-B625CAAAF9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBA787E-3DAE-4ABD-A1D0-B625CAAAF9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBA787E-3DAE-4ABD-A1D0-B625CAAAF9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBA787E-3DAE-4ABD-A1D0-B625CAAAF9F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

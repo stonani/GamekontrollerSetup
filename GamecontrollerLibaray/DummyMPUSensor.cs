@@ -11,7 +11,7 @@ namespace GamecontrollerLibaray
         public DummyMPUSensor()
         {
             SerialPort port = new SerialPort();
-            port.PortName = "COM7";
+            port.PortName = "COM3";
             port.BaudRate = 9600;
             port.ReadTimeout = 5000;
             port.DtrEnable = true;    // Data-terminal-ready
@@ -29,10 +29,5 @@ namespace GamecontrollerLibaray
             rea.Data = gyroDataIn;
             OnDataReceived(this, rea);
         }
-
-        public string GetData()
-        {
-            throw new System.NotImplementedException();
-        }
     }
-}
+} 

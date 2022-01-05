@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamecontrollerLibaray.Controllers
+namespace GamecontrollerLibaray.Interface
 {
-    public class SerialSensor
+    public interface ICameraSensor
     {
+        List<int> getCoordinates();
     }
 }

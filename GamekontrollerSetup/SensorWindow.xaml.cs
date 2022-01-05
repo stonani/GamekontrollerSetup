@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using GamecontrollerLibaray.DataObjects;
 using GamecontrollerLibaray;
 using GamecontrollerLibaray.Controllers;
+using GamecontrollerLibaray.Calculators;
 
 namespace GamekontrollerSetup
 {
@@ -26,74 +27,38 @@ namespace GamekontrollerSetup
     /// </summary>
     public partial class SensorWindow : Window
     {
-        double _joyXdata = 90;
-        double _joyYdata = 100;
-        SerialPort _SerialPort;
-        BlockingCollection<JoystickDataContainer> _joyDataQueue = new BlockingCollection<JoystickDataContainer>();
+        private SensorController _sensorController;
+        private Thread writeDataControlThread;
+        private WriteDataController writeDataController;
 
-        public SensorWindow()
+        public SensorWindow(BlockingCollection<JoystickDataContainer> joyDataQueue, BlockingCollection<GyroDataContainer> gyroDataQueue, BlockingCollection<CameraDataContainer> cameraDataQueue, SensorController sensorController )
         {
             InitializeComponent();
-
-            //initilize serial port
-            //_SerialPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
-
-            //initilize windows elements
             StopDataB.IsEnabled = false;
+            _sensorController = sensorController;
+            var writeData = new FormsWrite(this);
+            writeDataController = new WriteDataController(writeData, joyDataQueue, gyroDataQueue, cameraDataQueue);
+
+
+            writeDataController.handleData = false;
+            writeDataControlThread = new Thread(writeDataController.Run);
+            writeDataControlThread.IsBackground = true;
+
+            writeDataControlThread.Start();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
 
         private void ReadDataB_Click(object sender, RoutedEventArgs e)
         {
-            //Set windows elements
-            //ReadDataB.IsEnabled = false;
-            //StopDataB.IsEnabled = true;
+            StopDataB.IsEnabled = true;
+            ReadDataB.IsEnabled = false;
 
-            //_SerialPort.Open();
-            //_SerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-            BlockingCollection<GyroDataContainer> dataQueue = new BlockingCollection<GyroDataContainer>();
-            GyroDataContainer gyroDataContainer = new GyroDataContainer();
-
-            var mpuSensor = new DummyMPUSensor();
-            var sensorController = new SensorController(mpuSensor, dataQueue, gyroDataContainer);
-            var keyboard = new PressKeyboardWindows();
-            var writeData = new FormsWrite(this);
-
-            var movementController = new MovementController(keyboard);
-            var gyroControl = new GyroController(dataQueue, movementController);
-            var writeDataController = new WriteDataController(writeData, dataQueue);
-
-
-            var gyroControlThread = new Thread(gyroControl.Run);
-            gyroControlThread.IsBackground = true;
-
-            var writeDataControlThread = new Thread(writeDataController.Run);
-            writeDataControlThread.IsBackground = true;
-
-            gyroControlThread.Start();
-            writeDataControlThread.Start();
-        }
-
-        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            SerialPort sp = (SerialPort)sender;
-            string indata = sp.ReadExisting();
-            string[] DataList = indata.Split('\n');
-            string[] DataPartList = DataList[1].Split(',');
-
-           
-        }
-
-        public void setStatus()
-        {
-            JoyStickXT.Text = Convert.ToString(_joyXdata);
-            JoyStickYT.Text = Convert.ToString(_joyYdata);
+            _sensorController.sendCommand("a");
+            writeDataController.handleData = true;
         }
 
         private void StopDataB_Click(object sender, RoutedEventArgs e)
@@ -102,7 +67,8 @@ namespace GamekontrollerSetup
             StopDataB.IsEnabled = false;
             ReadDataB.IsEnabled = true;
 
-            _SerialPort.Close();
+            _sensorController.sendCommand("i");
+            writeDataController.handleData = false;
         }
     }
 }

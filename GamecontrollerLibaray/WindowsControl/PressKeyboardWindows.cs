@@ -28,6 +28,7 @@ namespace GamecontrollerLibaray
                     input.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RIGHT);
                     break;
             }
+
         }
     }
 }
